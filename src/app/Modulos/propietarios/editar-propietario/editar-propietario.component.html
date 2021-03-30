@@ -1,0 +1,202 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col text-center">
+      <mat-card>
+        <mat-card-title>Editar Propitario  </mat-card-title>
+          <mat-card-content>
+            <hr>
+            <form action="" [formGroup]="ServicioPropitario.FormularioRegistro" (ngSubmit)= "onSubmit()">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="fa fa-user-circle" [class.blue-icon]='Nombre.valid' [class.red-icon]='Nombre.invalid && Nombre.touched'></i>
+                      </div>
+                    </div>
+                    <input type="hidden" name="IdPropietario" formControl="IdPropietario" [ngModel]="this.ServicioPropitario.SinPropietario.IdPropietario">
+                    <input name="Nombre" formControlName="Nombre" [ngModel]="this.ServicioPropitario.SinPropietario.Nombre" class="form-control" placeholder="Nombre del prietario">
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='Nombre.invalid && (Nombre.touched || Nombre.dirty)'>
+                    <div *ngIf="this.Nombre.hasError('required')">
+                      El nombre es requerido
+                    </div>
+                    <div *ngIf="this.Nombre.hasError('pattern')">
+                      El nombre debe tener solo letras
+                    </div>
+                    <div *ngIf="Nombre.invalid">
+                      El nombre es muy largo, maximo 50 caracteres
+                    </div>
+                  </div>
+                </div>
+                <!--Apellido-->
+                <div class="form-group col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="fa fa-user-circle" [class.blue-icon]='Apellido.valid' [class.red-icon]='Apellido.invalid && Apellido.touched'></i>
+                      </div>
+                    </div>
+                    <input name="Apellido" formControlName="Apellido" [ngModel]="this.ServicioPropitario.SinPropietario.Apellido" class="form-control" placeholder="Apellido del prpietario">
+                  </div>
+                  <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='Apellido.invalid && (Apellido.touched || Apellido.dirty)'>
+                    <div *ngIf="this.Apellido.hasError('required')">
+                      El apellido es requerido
+                    </div>
+                    <div *ngIf="this.Apellido.hasError('pattern')">
+                      El apellido debe tener solo letras
+                    </div>
+                    <div *ngIf="Apellido.invalid">
+                      El apellido es muy largo, maximo 50 caracteres
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Correo-->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-at" [class.blue-icon]='Correo.valid' [class.red-icon]='Correo.invalid && Correo.touched'></i>
+                    </div>
+                  </div>
+                  <input name="Correo" formControlName="Correo" [ngModel]="this.ServicioPropitario.SinPropietario.Correo" class="form-control" placeholder="Correo del prpietario">
+                </div>
+                <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='Correo.invalid && (Correo.touched || Correo.dirty)'>
+                    <div *ngIf="this.Correo.hasError('required')">
+                      El correo es requerido
+                    </div>
+                    <div *ngIf="this.Correo.hasError('pattern')">
+                      El formato del correo debe ser valido
+                    </div>
+                    <div *ngIf="Correo.invalid">
+                      El correo es muy largo, maximo 80 caracteres
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+              <!--Tipo Documento-->
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-id-card" [class.blue-icon]='IdTipoDocumento.valid' [class.red-icon]='IdTipoDocumento.invalid && IdTipoDocumento.touched'></i>
+                    </div>
+                  </div>
+                  <select name="IdTipoDocumento" formControlName="IdTipoDocumento" class="form-control" id="">
+                    <option value="">Elegir tipo documento</option>
+                    <option *ngFor="let Documento of ServicioPropitario.TiposDocuentos" value="{{ Documento.IdTipoDocumento }}"  [selected]="this.ServicioPropitario.SinPropietario.IdTipoDocumento" [value]="Documento.IdTipoDocumento" >{{ Documento.Descripcion }}</option>
+                  </select>
+                </div>
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='IdTipoDocumento.invalid && (IdTipoDocumento.touched || IdTipoDocumento.dirty)'>
+                  <div *ngIf="this.IdTipoDocumento.hasError('required')">
+                    El tipo de documento es requerido
+                  </div>
+                </div>
+              </div>
+              <!--Numero Documento-->
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-address-card" [class.blue-icon]='NumeroDocumento.valid' [class.red-icon]='NumeroDocumento.invalid && NumeroDocumento.touched'></i>
+                    </div>
+                  </div>
+                  <input name="NumeroDocumento" type="number"  formControlName="NumeroDocumento" [ngModel]="this.ServicioPropitario.SinPropietario.NumeroDocumento" class="form-control" placeholder="Numero de documento">
+                </div>
+                <!--Mesanje de error-->
+                  <div class="alert-danger" *ngIf='NumeroDocumento.invalid && (NumeroDocumento.touched || NumeroDocumento.dirty)'>
+                    <div *ngIf="this.NumeroDocumento.hasError('required')">
+                      El numero de documento es requerido
+                    </div>
+                    <div *ngIf="this.NumeroDocumento.hasError('pattern')">
+                      Solo son validos los numeros
+                    </div>
+                  </div>
+              </div>
+              </div>
+              <!--Celular-->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-phone" [class.blue-icon]='Celular.valid' [class.red-icon]='Celular.invalid && Celular.touched'></i>
+                    </div>
+                  </div>
+                  <input name="Celular" type="number" formControlName="Celular" [ngModel]="this.ServicioPropitario.SinPropietario.Celular" class="form-control" placeholder="Celular">
+                </div>
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='Celular.invalid && (Celular.touched || Celular.dirty)'>
+                  <div *ngIf="this.Celular.hasError('required')">
+                    El celular es requerido
+                  </div>
+                  <div *ngIf="this.Celular.hasError('pattern')">
+                    Solo son validos los numeros
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <!--Barrio-->
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-home" [class.blue-icon]='IdBarrio.valid' [class.red-icon]='IdBarrio.invalid && IdBarrio.touched'></i>
+                    </div>
+                  </div>
+                  <select name="IdBarrio" formControlName="IdBarrio" class="form-control">
+                    <option value="">Elegi tu barrio</option>
+                    <option *ngFor="let Barrio of ServicioPropitario.Barrios" value="{{ Barrio.IdBarrio }}" [selected]="this.ServicioPropitario.SinPropietario.IdBarrio == Barrio.IdBarrio"  >{{ Barrio.NombreBarrio }}</option>
+                  </select>
+                </div>
+                <!--Mesanje de error-->
+                <div class="alert-danger" *ngIf='IdBarrio.invalid && (IdBarrio.touched || IdBarrio.dirty)'>
+                  <div *ngIf="this.IdBarrio.hasError('required')">
+                    El barrio es requerido
+                  </div>
+                </div>
+              </div>
+              <!--Genero-->
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i class="fa fa-venus-mars" [class.blue-icon]='IdGenero.valid' [class.red-icon]='IdGenero.invalid && IdGenero.touched'></i>
+                    </div>
+                  </div>
+                  <select name="IdGenero" formControlName="IdGenero" class="form-control" id="">
+                    <option value="">Elegi tu sexo</option>
+                    <option *ngFor="let Genero of ServicioPropitario.Genero" value="{{ Genero.IdGenero }}" [selected]="Genero.IdGenero == this.ServicioPropitario.SinPropietario.IdGenero"   >{{ Genero.Descripcion }}</option>
+                  </select>
+                </div>
+                 <!--Mesanje de error-->
+                 <div class="alert-danger" *ngIf='IdGenero.invalid && (IdGenero.touched || IdGenero.dirty)'>
+                  <div *ngIf="this.IdGenero.hasError('required')">
+                    El genero es requerido
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block" [disabled]="ServicioPropitario.FormularioRegistro.invalid" type="submit"><i class="fa fa-save"></i> Guardar</button>
+              </div>
+            </form>
+          </mat-card-content>
+          <mat-card-footer>
+            <button class="btn"><a class="volver" href="propietarios/">Volver</a> <br></button>
+          </mat-card-footer>
+        </mat-card>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+

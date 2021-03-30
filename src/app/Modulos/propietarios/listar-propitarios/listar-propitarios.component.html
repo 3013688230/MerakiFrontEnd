@@ -1,0 +1,45 @@
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-12">
+          <h3>{{ title }} </h3>
+          <a class="btn link-primary" href="propietarios/Crear" routerLink='' ><i class="fa fa-plus-square" aria-hidden="true"></i> Crear propitario</a>
+          <br>
+          <br>
+        </div>
+        <div class="col col-sm-12 sucess">
+          <table class="table table-bordered table-Secondary" >
+            <thead>
+            <tr>
+              <th class="text-center">Tipo Documento </th>
+              <th class="text-center">Numero Documento </th>
+              <th class="text-center">Nombre Completo</th>
+              <th class="text-center">Barrio</th>
+              <th class="text-center">Celular</th>
+              <th class="text-center">Estado</th>
+              <th class="text-center">Detalle</th>
+              <th class="text-center">Editar</th>
+            </tr>
+            </thead >
+            <tbody>
+              <tr *ngFor="let Propitarios of servicioPropitario.listaPropitarios | paginate:page_size:page_number">
+                <td class="text-center">{{ Propitarios.TipoDocumento }}</td>
+                <td class="text-center">{{ Propitarios.NumeroDocumento }}</td>
+                <td class="text-center">{{ Propitarios.Nombre + ' ' + Propitarios.Apellido  }}</td>
+                <td class="text-center">{{ Propitarios.Barrio }}</td>
+                <td class="text-center">{{ Propitarios.Celular }}</td>
+                <td *ngIf="Propitarios.IdRol == 1" class="text-center detalle"><button class="btn btn-outline-info" (click)="CambiarEstado(Propitarios.IdUsuario, Propitarios.IdRol)"> {{ Propitarios.Estado }} </button></td>
+                <td *ngIf="Propitarios.IdRol == 2" class="text-center detalle"><button class="btn btn-outline-danger" (click)="CambiarEstado(Propitarios.IdUsuario, Propitarios.IdRol)"> {{ Propitarios.Estado }} </button></td>
+                <td class="text-center editar"><a href="propietarios/Detalle/{{Propitarios.IdPropietario}}" routerLink=''><i class="fa fa-info-circle" aria-hidden="true"></i> </a></td>
+                <td class="text-center detalle"><a href="propietarios/Editar/{{Propitarios.IdPropietario}}" routerLink='' ><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+          <mat-paginator [length]="servicioPropitario.listaPropitarios.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/4110ee4c4a.js" crossorigin="anonymous"></script>
+
+

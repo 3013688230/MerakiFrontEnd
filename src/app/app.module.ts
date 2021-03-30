@@ -1,3 +1,4 @@
+import { PropietariosModule } from './Modulos/propietarios/propietarios.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,8 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import { RegistroComponent } from './registro/registro.component';
-
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +48,9 @@ import { RegistroComponent } from './registro/registro.component';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    PropietariosModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
