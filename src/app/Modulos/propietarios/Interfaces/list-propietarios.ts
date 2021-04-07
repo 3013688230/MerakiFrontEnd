@@ -3,10 +3,11 @@ export interface ListPropietarios {
   TipoDocumento: string;
   Apellido: string;
   NumeroDocumento: number;
-  Barrio: string;
+  Direccion: string;
   Nombre: string;
   Celular: number;
   IdRol: number;
   Estado: string;
-  IdUsuario: number;
+  IdUsuario: string;
+  idEstado: number;
 }

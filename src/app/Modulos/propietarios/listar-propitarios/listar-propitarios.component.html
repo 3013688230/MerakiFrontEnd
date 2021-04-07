@@ -15,7 +15,7 @@
               <th class="text-center">Tipo Documento </th>
               <th class="text-center">Numero Documento </th>
               <th class="text-center">Nombre Completo</th>
-              <th class="text-center">Barrio</th>
+              <th class="text-center">Direccion</th>
               <th class="text-center">Celular</th>
               <th class="text-center">Estado</th>
               <th class="text-center">Detalle</th>
@@ -27,10 +27,10 @@
                 <td class="text-center">{{ Propitarios.TipoDocumento }}</td>
                 <td class="text-center">{{ Propitarios.NumeroDocumento }}</td>
                 <td class="text-center">{{ Propitarios.Nombre + ' ' + Propitarios.Apellido  }}</td>
-                <td class="text-center">{{ Propitarios.Barrio }}</td>
+                <td class="text-center">{{ Propitarios.Direccion }}</td>
                 <td class="text-center">{{ Propitarios.Celular }}</td>
-                <td *ngIf="Propitarios.IdRol == 1" class="text-center detalle"><button class="btn btn-outline-info" (click)="CambiarEstado(Propitarios.IdUsuario, Propitarios.IdRol)"> {{ Propitarios.Estado }} </button></td>
-                <td *ngIf="Propitarios.IdRol == 2" class="text-center detalle"><button class="btn btn-outline-danger" (click)="CambiarEstado(Propitarios.IdUsuario, Propitarios.IdRol)"> {{ Propitarios.Estado }} </button></td>
+                <td *ngIf="Propitarios.idEstado == 1" class="text-center detalle"><button class="btn btn-outline-info" (click)="CambiarEstado(Propitarios.IdUsuario, Propitarios.IdUsuario)"> {{ Propitarios.Estado }} </button></td>
+                <td *ngIf="Propitarios.idEstado == 2" class="text-center detalle"><button class="btn btn-outline-danger" (click)="CambiarEstado(Propitarios.IdUsuario, Propitarios.idEstado)"> {{ Propitarios.Estado }} </button></td>
                 <td class="text-center editar"><a href="propietarios/Detalle/{{Propitarios.IdPropietario}}" routerLink=''><i class="fa fa-info-circle" aria-hidden="true"></i> </a></td>
                 <td class="text-center detalle"><a href="propietarios/Editar/{{Propitarios.IdPropietario}}" routerLink='' ><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
               </tr>

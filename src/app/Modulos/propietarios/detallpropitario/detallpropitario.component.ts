@@ -10,7 +10,7 @@ import { ServicioPropietarioService } from '../Servicios/servicio-propietario.se
 export class DetallpropitarioComponent implements OnInit {
   id: any;
   idConvert: number;
-  constructor(public serviciosPropietario: ServicioPropietarioService,private rutaActiva: ActivatedRoute) { }
+  constructor(public serviciosPropietario: ServicioPropietarioService, private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.rutaActiva.snapshot.paramMap.get('variable');

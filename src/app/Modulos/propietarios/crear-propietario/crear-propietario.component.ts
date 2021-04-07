@@ -22,7 +22,7 @@ export class CrearPropietarioComponent implements OnInit {
       NumeroDocumento: ['', [Validators.required, Validators.pattern(this.exRegularNumeros)]],
       Celular: ['', [Validators.required, Validators.pattern(this.exRegularNumeros)]],
       IdGenero: ['', [Validators.required]],
-      IdBarrio: ['', [Validators.required]],
+      Direccion: ['', [Validators.required]],
       IdTipoDocumento: ['', [Validators.required]]
     });
   }
@@ -59,8 +59,8 @@ export class CrearPropietarioComponent implements OnInit {
     return this.ServicioPropitario.FormularioRegistro.controls.IdGenero;
   }
   // tslint:disable-next-line: typedef
-  get IdBarrio(){
-    return this.ServicioPropitario.FormularioRegistro.controls.IdBarrio;
+  get Direccion(){
+    return this.ServicioPropitario.FormularioRegistro.controls.Direccion;
   }
   // tslint:disable-next-line: typedef
   get IdTipoDocumento(){

@@ -26,15 +26,16 @@ export class ListarPropitariosComponent implements OnInit {
   }
   page_size: number = 5;
   page_number: number = 1;
-  CambiarEstado(IdRol: number, IdUsario: number){
-    this.servicioPropitario.EditarEstado(IdRol, IdUsario).subscribe(
-      res => {
-        this.servicioPropitario.ListarPropitarios();
-        this.toast.success('Se cambio el estado');
-      },
-      err => {
-        this.toast.error('error');
-      }
-    );
-  }
+  CambiarEstado(IdRol: string, IdUsario: string){
+    this.servicioPropitario.EditarEstado(IdRol, IdUsario)
+      .subscribe(
+        res => {
+          this.servicioPropitario.ListarPropitarios();
+          this.toast.success('Se cambio el estado');
+        },
+        err => {
+          this.toast.error('error');
+        }
+      );
+    }
 }

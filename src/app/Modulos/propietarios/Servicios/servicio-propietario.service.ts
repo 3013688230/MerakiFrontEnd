@@ -13,7 +13,7 @@ import { Barrio } from '../Interfaces/barrio';
 })
 export class ServicioPropietarioService {
 
-  readonly rootUrl = 'http://localhost:61470/api';
+  readonly rootUrl = 'http://localhost:60382/api';
   listaPropitarios: ListPropietarios[];
   DetallePropietario: DetallePropietario;
   FormularioRegistro: FormGroup;
@@ -35,7 +35,6 @@ export class ServicioPropietarioService {
   }
   guardarEmpleado(){
     this.Propietario = this.FormularioRegistro.value;
-    Number(this.Propietario.IdBarrio);
     Number(this.Propietario.IdTipoDocumento);
     Number(this.Propietario.IdGenero);
     if (this.Propietario.IdPropietario == null) {
@@ -46,7 +45,6 @@ export class ServicioPropietarioService {
   }
   EditarPropietario(){
     this.Propietario = this.FormularioRegistro.value;
-    Number(this.Propietario.IdBarrio);
     Number(this.Propietario.IdTipoDocumento);
     Number(this.Propietario.IdGenero);
     if (this.Propietario.IdPropietario == null) {
@@ -75,7 +73,7 @@ export class ServicioPropietarioService {
     .toPromise()
     .then(res => this.SinPropietario = res as Propietario);
   }
-  EditarEstado(Idrol: number, IdUsuario){
-    return this.http.put(this.rootUrl + '/Propietarios/EditarEstado/' + Idrol, IdUsuario);
+  EditarEstado(Idrol: string, IdUsuario){
+     return this.http.put(this.rootUrl + '/Propietarios/EditarEstado/' + Idrol, IdUsuario);
   }
 }

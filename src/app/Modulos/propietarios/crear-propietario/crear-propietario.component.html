@@ -143,23 +143,20 @@
                 </div>
               </div>
               <div class="row">
-                <!--Barrio-->
+                <!--Direccion-->
               <div class="form-group col-md-6">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-white">
-                      <i class="fa fa-home" [class.blue-icon]='IdBarrio.valid' [class.red-icon]='IdBarrio.invalid && IdBarrio.touched'></i>
+                      <i class="fa fa-home" [class.blue-icon]='Direccion.valid' [class.red-icon]='Direccion.invalid && Direccion.touched'></i>
                     </div>
                   </div>
-                  <select name="IdBarrio" formControlName="IdBarrio" class="form-control" id="">
-                    <option value="">Elegi tu barrio</option>
-                    <option *ngFor="let Barrio of ServicioPropitario.Barrios" value="{{ Barrio.IdBarrio }}">{{ Barrio.NombreBarrio }}</option>
-                  </select>
+                  <input name="Direccion" type="text" formControlName="Direccion" class="form-control" placeholder="Direccion">
                 </div>
                 <!--Mesanje de error-->
-                <div class="alert-danger" *ngIf='IdBarrio.invalid && (IdBarrio.touched || IdBarrio.dirty)'>
-                  <div *ngIf="this.IdBarrio.hasError('required')">
-                    El barrio es requerido
+                <div class="alert-danger" *ngIf='Direccion.invalid && (Direccion.touched || Direccion.dirty)'>
+                  <div *ngIf="this.Direccion.hasError('required')">
+                    La Direccion es requerido
                   </div>
                 </div>
               </div>

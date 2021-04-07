@@ -2,7 +2,7 @@ export interface Propietario {
   IdPropietario: number;
   IdTipoDocumento: number;
   IdGenero: number;
-  IdBarrio: number;
+  Direccion: string;
   Correo: string;
   Nombre: string;
   Apellido: string;
