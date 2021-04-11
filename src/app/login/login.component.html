@@ -7,11 +7,18 @@
       <div class="header">
         <h2>Login</h2>
       </div>
-      <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+      <form *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
         <div class="email-input">
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Correo</mat-label>
-            <input formControlName="email" matInput required />
+            <input type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email" formControlName="email" matInput required />
             <mat-error *ngIf="loginForm.get('email').errors?.required">
               Dirección de correo electrónico requerida.
             </mat-error>
@@ -35,9 +42,16 @@
         </div>
         <button mat-flat-button color="primary">Login</button>
       </form>
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in as {{ roles }}.
+      </div>
     </mat-card-content>
   </mat-card>
 
+</div>
+
+<div class="container">
+  <i class="fa fa-address-card"></i><input type="button" class="btn btn-lg btn-success" value="hola">
 </div>
 
 

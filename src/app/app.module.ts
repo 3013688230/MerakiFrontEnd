@@ -1,4 +1,7 @@
 import { PropietariosModule } from './Modulos/propietarios/propietarios.module';
+import { RouterModule, Routes } from '@angular/router';
+import { ConfiguracionService } from './Modulos/login/configuracion.service';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,17 +22,31 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { Route } from '@angular/router';
+//import { LoginComponent } from './login/login.component';
 import { MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import { RegistroComponent } from './registro/registro.component';
 import { ToastrModule } from 'ngx-toastr';
+import { PerfilComponent } from './perfil/perfil.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { RegistrarPropietarioComponent } from './Modulos/login/registrar-propietario/registrar-propietario.component';
+import { GestionRegistroService } from './Modulos/login/gestion-registro.service';
+import { ToastrModule } from 'ngx-toastr';
+import { UsuarioComponent } from './Modulos/login/usuario/usuario.component';
+import { RegistroUsuarioComponent } from './Modulos/login/usuario/registro-usuario/registro-usuario.component';
+import { LoginComponent } from './Modulos/login/usuario/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PerfilComponent,
+    BoardAdminComponent,
+    RegistrarPropietarioComponent,
+    UsuarioComponent,
+    RegistroUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +69,7 @@ import { ToastrModule } from 'ngx-toastr';
     PropietariosModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [GestionRegistroService, ConfiguracionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
