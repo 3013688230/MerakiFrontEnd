@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col text-center">
+      <mat-card>
+        <mat-card-title>Propietario</mat-card-title>
+          <mat-card-content>
+            <br>
+            N# {{ id }}
+            <hr>
+            Nombre: {{ serviciosPropietario.DetallePropietario.Nombre }}
+            <hr>
+            Apellido: {{ serviciosPropietario.DetallePropietario.Apellido }}
+            <hr>
+            Correo: {{ serviciosPropietario.DetallePropietario.Correo }}
+            <hr>
+            Celular: {{ serviciosPropietario.DetallePropietario.Celular }}
+            <hr>
+            Barrio: {{ serviciosPropietario.DetallePropietario.Barrio }}
+            <hr>
+            Genero : {{serviciosPropietario.DetallePropietario.Genero }}
+            <hr>
+            Tipo de identificacion: {{ serviciosPropietario.DetallePropietario.TipoDoumento }}
+            <hr>
+            N# de identificacion: {{ serviciosPropietario.DetallePropietario.NumeroDocumento }}
+
+          </mat-card-content>
+          <mat-card-footer>
+            <button class="btn"><a href="propietarios/">Volver</a> <br></button>
+            <button class="btn"><a href="propietarios/Editar/{{ id }}">Editar</a></button>
+          </mat-card-footer>
+        </mat-card>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
