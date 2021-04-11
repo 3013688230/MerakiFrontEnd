@@ -11,17 +11,56 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
+  form: any = {
+    email: null,
+    password: null
+  };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+
 
   hide: boolean = false;
   constructor(
     private authService: AuthService,
+    private tokenStorage: TokenStorageService,
     private router: Router,
     private fb: FormBuilder
   ) { }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
   }
+
+  onSubmit(): void {
+    const { username, password } = this.form;
+
+    this.authService.login(username, password).subscribe(
+      data => {
+        this.tokenStorage.guardarToken(data.accessToken);
+        this.tokenStorage.guardarUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+        this.cargarPagina();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+
+  cargarPagina(): void {
+    window.location.reload();
+  }
+
 
   loginForm : FormGroup = this.fb.group(
     {
@@ -35,8 +74,8 @@ export class LoginComponent implements OnInit {
       return;
     }
     console.log(this.loginForm.value);
-    this.authService.login(this.loginForm.value).pipe(
+    /*this.authService.login(this.loginForm.value).pipe(
       map(token => this.router.navigate(['admin']))
-    ).subscribe();
+    ).subscribe();*/
   }
 }
