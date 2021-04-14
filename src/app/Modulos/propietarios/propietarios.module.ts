@@ -13,8 +13,9 @@ import {MatCardModule} from '@angular/material/card';
 import { CrearPropietarioComponent } from './crear-propietario/crear-propietario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarPropietarioComponent } from './editar-propietario/editar-propietario.component';
+import { VerperfilComponent } from './verperfil/verperfil.component';
 @NgModule({
-  declarations: [ListarPropitariosComponent, DetallpropitarioComponent, PaginatePipe, CrearPropietarioComponent, EditarPropietarioComponent],
+  declarations: [ListarPropitariosComponent, DetallpropitarioComponent, PaginatePipe, CrearPropietarioComponent, EditarPropietarioComponent, VerperfilComponent],
   imports: [
     CommonModule,
     DataTablesModule,
