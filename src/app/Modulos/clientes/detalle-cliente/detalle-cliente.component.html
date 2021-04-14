@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col text-center">
+      <mat-card>
+        <mat-card-title>Cliente:</mat-card-title>
+        <mat-card-content>
+          <br>
+          N# {{ id }}
+          <hr>
+          Nombre: {{ gestionClienteService.DetalleCliente.Nombre }}
+          <hr>
+          Apellido: {{ gestionClienteService.DetalleCliente.Apellido }}
+          <hr>
+          Correo: {{ gestionClienteService.DetalleCliente.Correo }}
+          <hr>
+          Direccion: {{ gestionClienteService.DetalleCliente.Direccion }}
+          <hr>
+          Celular: {{ gestionClienteService.DetalleCliente.Celular }}
+          <hr>
+          Genero: {{ gestionClienteService.DetalleCliente.Genero }}
+          <hr>
+          Tipo de identificación: {{ gestionClienteService.DetalleCliente.TipoDocumento }}
+          <hr>
+          N# de identificación: {{ gestionClienteService.DetalleCliente.NumeroDocumento }}
+
+        </mat-card-content>
+        <mat-card-footer>
+          <button class="btn-dark btn-lg btn-block"><a href="clientes/">Volver</a><br></button>
+          <button class="btn-info btn-lg btn-block"><a href="clientes/Editar/{{ id }}">Editar</a></button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>
