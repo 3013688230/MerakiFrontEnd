@@ -21,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import { RegistroComponent } from './registro/registro.component';
+import { ClientesModule } from './Modulos/clientes/clientes.module';
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { RegistroComponent } from './registro/registro.component';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ClientesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

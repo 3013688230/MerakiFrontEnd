@@ -1,0 +1,260 @@
+<form [formGroup]="gestionClienteService.formularioRegistroCliente" (ngSubmit)="onSubmit()">
+
+<br><br>
+
+
+<div class="row">
+
+  <!--Nombre-->
+  <div class="form-group col-md-6">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-user-circle" [class.purple-icon]="Nombre.valid" [class.red-icon]="Nombre.invalid && Nombre.touched"></i>
+        </div>
+
+      </div>
+      <input type="hidden" name="IdCliente">
+
+      <input name="Nombre" formControlName = "Nombre" class="form-control" placeholder="Nombres">
+    </div>
+
+    <!--Mensaje de error-->
+
+    <div class="alert alert-danger" *ngIf="Nombre.invalid && (Nombre.touched || Nombre.dirty)">
+
+      <div *ngIf="this.Nombre.hasError('required')">
+        El nombre es requerido
+      </div>
+      <div *ngIf="this.Nombre.hasError('pattern')">
+        El nombre debe contener solo letras
+      </div>
+      <div *ngIf="this.Nombre.hasError('maxlength')">
+        El nombre debe tener máximo 30 carácteres
+      </div>
+      <div *ngIf="this.Nombre.hasError('minlength')">
+        El nombre debe tener mínimo 3 carácteres
+      </div>
+    </div>
+  </div>
+
+  <!--Apellido-->
+
+  <div class="form-group col-md-6">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-user" [class.purple-icon]="Apellido.valid" [class.red-icon]="Apellido.invalid && Apellido.touched"></i>
+        </div>
+      </div>
+
+      <input name="Apellido" formControlName="Apellido" class="form-control" placeholder="Apellidos">
+
+    </div>
+  </div>
+
+  <!--Mensaje de error-->
+
+  <div class="alert alert-danger" *ngIf="Apellido.invalid && (Apellido.touched || Apellido.dirty)">
+
+    <div *ngIf="this.Apellido.hasError('required')">
+      El apellido es requerido
+    </div>
+    <div *ngIf="this.Apellido.hasError('pattern')">
+      El apellido debe contener solo letras
+    </div>
+    <div *ngIf="this.Apellido.hasError('maxlength')">
+      El apellido debe tener máximo 50 carácteres
+    </div>
+    <div *ngIf="this.Apellido.hasError('minlength')">
+      El apellido debe tener mínimo 4 carácteres
+    </div>
+  </div>
+
+</div>
+
+
+  <!--Genero-->
+
+<div class="form-group">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text bg-white">
+        <i class="fa fa-male" [class.blue-icon]='IdGenero.valid'
+        [class.red-icon]='IdGenero.invalid && IdGenero.touched'></i>
+      </div>
+    </div>
+    <select name="IdGenero" formControlName="IdGenero" class="form-control" id="">
+      <option value="">Seleccione su genero</option>
+      <option *ngFor="let IdGenero of gestionClienteService.genero"
+      value="{{ IdGenero.IdGenero }}">{{ IdGenero.Descripcion }}</option>
+    </select>
+</div>
+
+  <!--Mensaje de error-->
+
+  <div class="alert alert-danger" *ngIf="IdGenero.invalid && (IdGenero.touched || IdGenero.dirty)">
+
+    <div *ngIf="this.IdGenero.hasError('required')">
+      El genero es requerido
+    </div>
+  </div>
+</div>
+
+
+
+  <!--Correo-->
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-at" [class.purple-icon]="Correo.valid" [class.red-icon]="Correo.invalid && Correo.touched"></i>
+        </div>
+      </div>
+
+      <input type="email" name="Correo" formControlName="Correo" class="form-control" placeholder="Correo electrónico">
+
+    </div>
+
+    <!--Mensaje de error-->
+
+    <div class="alert alert-danger" *ngIf="Correo.invalid && (Correo.touched || Correo.dirty)">
+
+      <div *ngIf="this.Correo.hasError('required')">
+        El correo electrónico es requerido
+      </div>
+      <div *ngIf="this.Correo.hasError('pattern')">
+        El formato del correo electrónico es incorrecto
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--Direccion-->
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-road" [class.purple-icon]="Direccion.valid" [class.red-icon]="Direccion.invalid && Direccion.touched"></i>
+        </div>
+      </div>
+
+      <input type="text" name="Direccion" formControlName="Direccion" class="form-control" placeholder="Dirección">
+
+    </div>
+
+    <!--Mensaje de error-->
+
+    <div class="alert alert-danger" *ngIf="Direccion.invalid && (Direccion.touched || Direccion.dirty)">
+
+      <div *ngIf="this.Direccion.hasError('required')">
+        El correo electrónico es requerido
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+
+  <!--TipoDocumento-->
+
+    <div class="form-group col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fa fa-id-card" [class.blue-icon]='IdTipoDocumento.valid'
+            [class.red-icon]='IdTipoDocumento.invalid && IdTipoDocumento.touched'></i>
+          </div>
+        </div>
+        <select name="IdTipoDocumento" formControlName="IdTipoDocumento" class="form-control" id="">
+          <option value="">Seleccione su tipo de documento</option>
+          <option *ngFor="let Documento of gestionClienteService.tipoDocumento"
+          value="{{ Documento.IdTipoDocumento }}">{{ Documento.Descripcion }}</option>
+        </select>
+    </div>
+
+    <!--Mensaje de error-->
+
+    <div class="alert alert-danger" *ngIf="IdTipoDocumento.invalid && (IdTipoDocumento.touched || IdTipoDocumento.dirty)">
+
+      <div *ngIf="this.IdTipoDocumento.hasError('required')">
+        El tipo de documento es requerido
+      </div>
+    </div>
+</div>
+
+
+
+  <!--Documento-->
+
+  <div class="form-group col-md-6">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-address-card" [class.purple-icon]="NumeroDocumento.valid" [class.red-icon]="NumeroDocumento.invalid && NumeroDocumento.touched"></i>
+        </div>
+      </div>
+
+      <input name="NumeroDocumento" formControlName="NumeroDocumento" class="form-control" placeholder="Número de documento">
+
+    </div>
+
+    <!--Mensaje de error-->
+
+  <div class="alert alert-danger" *ngIf="NumeroDocumento.invalid && (NumeroDocumento.touched || NumeroDocumento.dirty)">
+
+      <div *ngIf="this.NumeroDocumento.hasError('required')">
+        El número de documento es requerido
+      </div>
+      <div *ngIf="this.NumeroDocumento.hasError('pattern')">
+        El número de documento debe contener solo números
+      </div>
+      <div *ngIf="this.NumeroDocumento.hasError('maxlength')">
+        El número de documento debe tener máximo 15 carácteres
+      </div>
+      <div *ngIf="this.NumeroDocumento.hasError('minlength')">
+        El número de documento debe tener mínimo 5 carácteres
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <!--Celular-->
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-phone" [class.purple-icon]="Celular.valid" [class.red-icon]="Celular.invalid && Celular.touched"></i>
+        </div>
+      </div>
+
+      <input name="Celular" formControlName="Celular" class="form-control" placeholder="Celular">
+
+    </div>
+
+    <!--Mensaje de error-->
+
+  <div class="alert alert-danger" *ngIf="Celular.invalid && (Celular.touched || Celular.dirty)">
+
+    <div *ngIf="this.Celular.hasError('required')">
+      El celular es requerido
+    </div>
+    <div *ngIf="this.Celular.hasError('pattern')">
+      El celular debe contener solo números
+    </div>
+    <div *ngIf="this.Celular.hasError('minlength')">
+      El celular debe tener mínimo 5 carácteres
+    </div>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn-dark btn-lg btn-block" [disabled]="gestionClienteService.formularioRegistroCliente.invalid" type="submit"> <i class="fa fa-save"></i>Aceptar</button>
+  </div>
+</form>
