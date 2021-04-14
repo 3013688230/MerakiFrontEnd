@@ -1,3 +1,7 @@
+import { PropietariosModule } from './Modulos/propietarios/propietarios.module';
+import { RouterModule, Routes } from '@angular/router';
+import { ConfiguracionService } from './Modulos/login/configuracion.service';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,12 +22,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { Route } from '@angular/router';
+//import { LoginComponent } from './login/login.component';
 import { MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import { RegistroComponent } from './registro/registro.component';
-import { ClientesModule } from './Modulos/clientes/clientes.module';
-
-
 
 @NgModule({
   declarations: [
@@ -31,7 +33,12 @@ import { ClientesModule } from './Modulos/clientes/clientes.module';
     NavComponent,
     HomeComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PerfilComponent,
+    BoardAdminComponent,
+    RegistrarPropietarioComponent,
+    UsuarioComponent,
+    RegistroUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +58,9 @@ import { ClientesModule } from './Modulos/clientes/clientes.module';
     ReactiveFormsModule,
     FormsModule,
     MatFormFieldModule,
-    ClientesModule
+
   ],
-  providers: [],
+  providers: [GestionRegistroService, ConfiguracionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

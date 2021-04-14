@@ -1,0 +1,320 @@
+<form [formGroup]="gestionPropietarioService.formularioRegistroPropietarios" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                  <i class="fa fa-user-circle" [class.blue-icon]="gestionPropietarioService.Nombre.valid" [class.red-icon]="gestionPropietarioService.Nombre.invalid && gestionPropietarioService.Nombre.touched"></i>
+              </div>
+
+          </div>
+          <input type="hidden" name="IdPropietario" formControlName="IdPropietario">
+
+          <input name="Nombre" formControlName="Nombre" class="form-control" placeholder="Nombre del propietario">
+
+      </div>
+
+      <!--Mensajes de error-->
+
+      <div class="alert alert-danger" *ngIf="gestionPropietarioService.Nombre.invalid && (gestionPropietarioService.Nombre.touched || gestionPropietarioService.Nombre.dirty)">
+
+          <div *ngIf="this.gestionPropietarioService.Nombre.hasError('required')">
+              El nombre es requerido
+          </div>
+          <div *ngIf="this.gestionPropietarioService.Nombre.hasError('pattern')">
+              El nombre debe contener solo letras
+          </div>
+      </div>
+
+  </div>
+
+   <!--Documento-->
+
+   <div class=" form-group ">
+    <div class="input-group ">
+        <div class="input-group-prepend ">
+            <div class="input-group-text bg-white ">
+                <i class="fa fa-home " [class.blue-icon]="gestionPropietarioService.Apellido.valid " [class.red-icon]="gestionPropietarioService.Apellido.invalid && gestionPropietarioService.Apellido.touched "></i>
+            </div>
+
+        </div>
+
+        <input name="Apellido " formControlName="Apellido" class="form-control " placeholder="Apellido del propietario ">
+
+    </div>
+
+    <!--Mensajes de error-->
+
+    <div class="alert alert-danger" *ngIf="gestionPropietarioService.Apellido.invalid && (gestionPropietarioService.Apellido.touched || gestionPropietarioService.Apellido.dirty)">
+
+      <div *ngIf="gestionPropietarioService.Apellido.hasError('required')">
+          El documento de identidad es requerido
+      </div>
+      <div *ngIf="gestionPropietarioService.Apellido.hasError('maxlength')">
+        El documento de identidad debe tener maximo 10 caracteres
+      </div>
+  </div>
+
+</div>
+
+
+  <!--Documento-->
+
+  <div class=" form-group ">
+    <div class="input-group ">
+        <div class="input-group-prepend ">
+            <div class="input-group-text bg-white ">
+                <i class="fa fa-home " [class.blue-icon]="gestionPropietarioService.numeroDocumento.valid " [class.red-icon]="gestionPropietarioService.numeroDocumento.invalid && gestionPropietarioService.numeroDocumento.touched "></i>
+            </div>
+
+        </div>
+
+        <input name="numeroDocumento " formControlName="numeroDocumento" class="form-control " placeholder="Documento de identidad del propietario ">
+
+    </div>
+
+    <!--Mensajes de error-->
+
+    <div class="alert alert-danger" *ngIf="gestionPropietarioService.numeroDocumento.invalid && (gestionPropietarioService.numeroDocumento.touched || gestionPropietarioService.numeroDocumento.dirty)">
+
+        <div *ngIf="gestionPropietarioService.numeroDocumento.hasError('required')">
+            El documento de identidad es requerido
+        </div>
+        <div *ngIf="gestionPropietarioService.numeroDocumento.hasError('maxlength')">
+          El documento de identidad debe tener maximo 10 caracteres
+        </div>
+    </div>
+
+</div>
+
+  <!--Direccion-->
+
+  <div class=" form-group ">
+      <div class="input-group ">
+          <div class="input-group-prepend ">
+              <div class="input-group-text bg-white ">
+                  <i class="fa fa-home " [class.blue-icon]="gestionPropietarioService.Direccion.valid " [class.red-icon]="gestionPropietarioService.Direccion.invalid && gestionPropietarioService.Direccion.touched "></i>
+              </div>
+
+          </div>
+
+          <input name="Direccion " formControlName="Direccion" class="form-control " placeholder="Dirección del propietario ">
+
+      </div>
+
+      <!--Mensajes de error-->
+
+      <div class="alert alert-danger" *ngIf="gestionPropietarioService.Direccion.invalid && (gestionPropietarioService.Direccion.touched || gestionPropietarioService.Direccion.dirty)">
+
+          <div *ngIf="gestionPropietarioService.Direccion.hasError('required')">
+              La dirección es requerida
+          </div>
+          <div *ngIf="gestionPropietarioService.Direccion.hasError('maxlength')">
+              La dirección debe tener maximo 10 caracteres
+          </div>
+      </div>
+
+  </div>
+
+  <div class="row ">
+
+      <!--Telefono-->
+
+      <div class="form-group col-md-6 ">
+          <div class="input-group ">
+              <div class="input-group-prepend ">
+                  <div class="input-group-text bg-white ">
+                      <i class="fa fa-phone " [class.blue-icon]="gestionPropietarioService.Celular.valid " [class.red-icon]="gestionPropietarioService.Celular.invalid && gestionPropietarioService.Celular.touched "></i>
+                  </div>
+
+              </div>
+
+              <input name="Celular " formControlName="Celular" class="form-control " placeholder="Teléfono ">
+
+          </div>
+
+          <!--Mensajes de error-->
+
+          <div class="alert alert-danger" *ngIf="gestionPropietarioService.Celular.invalid && (gestionPropietarioService.Celular.touched || gestionPropietarioService.Celular.dirty)">
+
+              <div *ngIf="gestionPropietarioService.Celular.hasError('required')">
+                  El telefono es requerido
+              </div>
+              <div *ngIf="gestionPropietarioService.Celular.hasError('maxlength')">
+                  El telefono debe tener maximo 15 numeros
+              </div>
+              <div *ngIf="gestionPropietarioService.Celular.hasError('minlength')">
+                  El telefono debe tener minimo 5 numeros
+              </div>
+
+              <div *ngIf="gestionPropietarioService.Celular.hasError('pattern')">
+                  El telefono debe contener solo numeros
+              </div>
+          </div>
+
+      </div>
+
+      <!--Email-->
+
+      <div class="form-group col-md-6 ">
+          <div class="input-group ">
+              <div class="input-group-prepend ">
+                  <div class="input-group-text bg-white ">
+                      <i class="fa fa-at " [class.blue-icon]="gestionPropietarioService.Correo.valid " [class.red-icon]="gestionPropietarioService.Correo.invalid && gestionPropietarioService.Correo.touched "></i>
+                  </div>
+
+              </div>
+
+              <input name="Correo" formControlName="Correo" class="form-control " placeholder="Correo ">
+
+          </div>
+
+          <!--Mensajes de error-->
+
+          <div class="alert alert-danger" *ngIf="gestionPropietarioService.Correo.invalid && (gestionPropietarioService.Correo.touched || gestionPropietarioService.Correo.dirty)">
+
+              <div *ngIf="gestionPropietarioService.Correo.hasError('required')">
+                  El email es requerido
+              </div>
+              <div *ngIf="gestionPropietarioService.Correo.hasError('pattern')">
+                  El formato del email es incorrecto
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+  <!--Selects option-->
+
+  <div class="row ">
+
+    <!--Tipo docuenti-->
+
+    <div class="form-group col-md-6 ">
+        <div class="input-group ">
+            <div class="input-group-prepend ">
+                <div class="input-group-text bg-white ">
+                    <i class="fa fa-phone " [class.blue-icon]="gestionPropietarioService.IdTipoDocumento.valid " [class.red-icon]="gestionPropietarioService.IdTipoDocumento.invalid && gestionPropietarioService.IdTipoDocumento.touched "></i>
+                </div>
+
+            </div>
+
+            <select class="custom-select, form-control" name="IdTipoDocumento" formControlName="IdTipoDocumento">
+              <option value="">Mi tipo de documento es:</option>
+              <option type="number" value=1>Cédula de ciudadanía</option>
+              <option type="number" value=2>Cédula de ciudadanía extranjera</option>
+              <option type="number" value=3>Pasaporte</option>
+              <option type="number" value=4>Documento nacional de identificacion</option>
+              <option type="number" value=5>Número de identificación tributaria</option>
+              <option type="number" value=6>PEP - RAMV</option>
+              <option type="number" value=7>PEP</option>
+              <!--<option *ngFor="let tipoDocumentos of tipoDocumento">{{ tipoDocumentos }}</option>-->
+            </select>
+
+        </div>
+
+        <!--Mensajes de error-->
+
+        <div class="alert alert-danger" *ngIf="gestionPropietarioService.IdTipoDocumento.invalid && (gestionPropietarioService.IdTipoDocumento.touched || gestionPropietarioService.IdTipoDocumento.dirty)">
+
+            <div *ngIf="gestionPropietarioService.IdTipoDocumento.hasError('required')">
+                El telefono es requerido
+            </div>
+            <div *ngIf="gestionPropietarioService.IdTipoDocumento.hasError('maxlength')">
+                El telefono debe tener maximo 15 numeros
+            </div>
+            <div *ngIf="gestionPropietarioService.IdTipoDocumento.hasError('minlength')">
+                El telefono debe tener minimo 5 numeros
+            </div>
+
+            <div *ngIf="gestionPropietarioService.IdTipoDocumento.hasError('pattern')">
+                El telefono debe contener solo numeros
+            </div>
+        </div>
+
+    </div>
+
+    <!--Email-->
+
+    <div class="form-group col-md-6 ">
+        <div class="input-group ">
+            <div class="input-group-prepend ">
+                <div class="input-group-text bg-white ">
+                    <i class="fa fa-at " [class.blue-icon]="gestionPropietarioService.IdGenero.valid " [class.red-icon]="gestionPropietarioService.IdGenero.invalid && gestionPropietarioService.IdGenero.touched "></i>
+                </div>
+
+            </div>
+
+            <select class="custom-select, form-control" name="IdGenero" formControlName="IdGenero">
+              <option value="">Mi género es:</option>
+              <option type="number" value=1>Masculino</option>
+              <option type="number" value=2>Femenino</option>
+              <option type="number" value=3>Otro</option>
+              <!--<option *ngFor="let tipoDocumentos of tipoDocumento">{{ tipoDocumentos }}</option>-->
+            </select>
+
+        </div>
+
+        <!--Mensajes de error-->
+
+        <div class="alert alert-danger" *ngIf="gestionPropietarioService.IdGenero.invalid && (gestionPropietarioService.IdGenero.touched || gestionPropietarioService.IdGenero.dirty)">
+
+            <div *ngIf="gestionPropietarioService.IdGenero.hasError('required')">
+                El email es requerido
+            </div>
+            <div *ngIf="gestionPropietarioService.IdGenero.hasError('pattern')">
+                El formato del email es incorrecto
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+  <!--Fin selects option-->
+
+  <!--IdBarrio-->
+
+  <div class=" form-group ">
+    <div class="input-group ">
+        <div class="input-group-prepend ">
+            <div class="input-group-text bg-white ">
+                <i class="fa fa-home " [class.blue-icon]="gestionPropietarioService.IdBarrio.valid " [class.red-icon]="gestionPropietarioService.IdBarrio.invalid && gestionPropietarioService.IdBarrio.touched "></i>
+            </div>
+
+        </div>
+
+        <select class="custom-select, form-control" name="IdBarrio" formControlName="IdBarrio">
+          <option value="">ID Barrio:</option>
+          <option type="number" value=1>Zona 1</option>
+          <option type="number" value=2>Zona 2</option>
+          <option type="number" value=3>Zona 3</option>
+          <option type="number" value=4>Zona 4</option>
+          <option type="number" value=5>Zona 5</option>
+        </select>
+
+    </div>
+
+    <!--Mensajes de error-->
+
+    <div class="alert alert-danger" *ngIf="gestionPropietarioService.IdBarrio.invalid && (gestionPropietarioService.IdBarrio.touched || gestionPropietarioService.IdBarrio.dirty)">
+
+        <div *ngIf="gestionPropietarioService.IdBarrio.hasError('required')">
+            El documento de identidad es requerido
+        </div>
+        <div *ngIf="gestionPropietarioService.IdBarrio.hasError('maxlength')">
+          El documento de identidad debe tener maximo 10 caracteres
+        </div>
+    </div>
+
+</div>
+
+  <div class="form-group ">
+      <button class="btn btn-primary btn-lg btn-block " (click)="resetearFormulario()"> <i class="fa fa-file"></i> Nuevo</button>
+  </div>
+  <br>
+  <div class="form-group ">
+      <button class="btn btn-success btn-lg btn-block " [disabled]="gestionPropietarioService.formularioRegistroPropietarios.invalid" type="submit "> <i class="fa fa-save "></i> Guardar</button>
+  </div>
+
+</form>

@@ -3,6 +3,11 @@
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card" [style.background-image]="getImage(card.imageName)">
+        <div class="container">---
+          <header class="jumbotron">
+            <p>{{ content }}</p>
+          </header>
+        </div>---
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
@@ -12,3 +17,10 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
+
+<div class="container">---
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+</div>---

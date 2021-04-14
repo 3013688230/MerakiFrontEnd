@@ -21,7 +21,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(loginForm: LoginForm) {
+  /*login(loginForm: LoginForm) {
     return this.http.post<any>('/api/users/login', { email: loginForm.email, password: loginForm.password }).pipe(
       map((token) => {
         console.log('token');
@@ -29,6 +29,13 @@ export class AuthService {
         return token;
       })
     )
+  }*/
+
+  login(email: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'signin', {
+      email,
+      password
+    }, httpOptions);
   }
 
   registro(nombre: string, email: string, celular: string, documento: string, ciudad: string, password: string): Observable<any> {
