@@ -3,14 +3,21 @@
   <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
+
   </form>
 </nav>
 
 <div class="card m-5" style="width: 18rem" *ngIf="this.perfilUsuario">
   <ul class="list-group">
-      <li class="list-group-item"><strong>Nombre usuario: </strong> {{this.perfilUsuario.Nombre}}</li>
-      <li class="list-group-item"><strong>Nombre Completo: </strong> {{this.perfilUsuario.TipoDoumento}}</li>
+      <li class="list-group-item"><strong>Nombre completo: </strong> {{this.perfilUsuario.Nombre + ' ' + this.perfilUsuario.Apellido}}</li>
+      <li class="list-group-item"><strong>Tipo documento: </strong> {{this.perfilUsuario.TipoDoumento}}</li>
+      <li class="list-group-item"><strong>Numero Documento: </strong> {{this.perfilUsuario.NumeroDocumento}}</li>
       <li class="list-group-item"><strong>Email: </strong> {{this.perfilUsuario.Correo}}</li>
-
+      <li class="list-group-item"><strong>Direccion: </strong> {{this.perfilUsuario.Direccion}}</li>
+      <li class="list-group-item"><strong>Celular: </strong> {{this.perfilUsuario.Celular}}</li>
   </ul>
+  <div class="card-body">
+    <a href="propietarios/Editar/{{this.perfilUsuario.IdPropietario}}" routerLink=''><i class="fa fa-info-circle" aria-hidden="true"></i> Editar informacion</a>
+    <button class="btn btn-outline-info" (click)="CambiarEstado(this.perfilUsuario.IdUsuario, this.perfilUsuario.IdUsuario)"> Deasctivar </button>
+  </div>
 </div>

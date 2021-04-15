@@ -51,27 +51,32 @@ var ServicioPropietarioService = /** @class */ (function () {
             .toPromise()
             .then(function (res) { return _this.TiposDocuentos = res; });
     };
+    // tslint:disable-next-line: typedef
     ServicioPropietarioService.prototype.ListaBarrio = function () {
         var _this = this;
         this.http.get(this.rootUrl + '/Propietarios/ListaBarrio')
             .toPromise()
             .then(function (res) { return _this.Barrios = res; });
     };
+    // tslint:disable-next-line: typedef
     ServicioPropietarioService.prototype.ListaGenero = function () {
         var _this = this;
         this.http.get(this.rootUrl + '/Propietarios/ListaGenero')
             .toPromise()
             .then(function (res) { return _this.Genero = res; });
     };
+    // tslint:disable-next-line: typedef
     ServicioPropietarioService.prototype.DetalleSinPropietario = function (id) {
         var _this = this;
         this.http.get(this.rootUrl + '/Propietarios/DetallePropietario/' + id)
             .toPromise()
             .then(function (res) { return _this.SinPropietario = res; });
     };
+    // tslint:disable-next-line: typedef
     ServicioPropietarioService.prototype.EditarEstado = function (Idrol, IdUsuario) {
         return this.http.put(this.rootUrl + '/Propietarios/EditarEstado/' + Idrol, IdUsuario);
     };
+    // tslint:disable-next-line: typedef
     ServicioPropietarioService.prototype.obtenerPerfil = function () {
         return this.http.get(this.rootUrl + '/Usuarios/Perfil/Propietario');
     };

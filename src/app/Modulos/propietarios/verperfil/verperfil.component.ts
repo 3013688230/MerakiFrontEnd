@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ServicioPropietarioService } from '../Servicios/servicio-propietario.service';
 @Component({
   selector: 'app-verperfil',
@@ -8,7 +9,7 @@ import { ServicioPropietarioService } from '../Servicios/servicio-propietario.se
 })
 export class VerperfilComponent implements OnInit {
 
-  constructor(private router: Router, public servicioPropitario: ServicioPropietarioService) { }
+  constructor(private router: Router, public servicioPropitario: ServicioPropietarioService, private toast: ToastrService) { }
   perfilUsuario;
 
   // tslint:disable-next-line: typedef
@@ -27,5 +28,18 @@ export class VerperfilComponent implements OnInit {
       }
     );
   }
+  // tslint:disable-next-line: typedef
+  CambiarEstado(IdRol: string, IdUsario: string){
+    this.servicioPropitario.EditarEstado(IdRol, IdUsario)
+      .subscribe(
+        res => {
+          localStorage.removeItem('token');
+          this.router.navigateByUrl('usuario/login');
+        },
+        err => {
+          this.toast.error('error');
+        }
+      );
+    }
 
 }
