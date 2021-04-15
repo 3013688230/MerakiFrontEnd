@@ -53,29 +53,35 @@ export class ServicioPropietarioService {
     console.log(this.Propietario);
     return this.http.put(this.rootUrl + '/Propietarios/' + this.Propietario.IdPropietario,this.Propietario);
   }
+  // tslint:disable-next-line: typedef
   ListaTipoDocumento(){
     this.http.get(this.rootUrl + '/Propietarios/ListaDocumento')
     .toPromise()
     .then(res => this.TiposDocuentos = res as TipoDocumento[]);
   }
+  // tslint:disable-next-line: typedef
   ListaBarrio(){
     this.http.get(this.rootUrl + '/Propietarios/ListaBarrio')
     .toPromise()
     .then(res => this.Barrios = res as Barrio[]);
   }
+  // tslint:disable-next-line: typedef
   ListaGenero(){
     this.http.get(this.rootUrl + '/Propietarios/ListaGenero')
     .toPromise()
     .then(res => this.Genero = res as Genero[]);
   }
+  // tslint:disable-next-line: typedef
   DetalleSinPropietario(id: number){
     this.http.get(this.rootUrl + '/Propietarios/DetallePropietario/' + id)
     .toPromise()
     .then(res => this.SinPropietario = res as Propietario);
   }
+  // tslint:disable-next-line: typedef
   EditarEstado(Idrol: string, IdUsuario){
      return this.http.put(this.rootUrl + '/Propietarios/EditarEstado/' + Idrol, IdUsuario);
   }
+  // tslint:disable-next-line: typedef
   obtenerPerfil(){
     return this.http.get(this.rootUrl + '/Usuarios/Perfil/Propietario');
    }
