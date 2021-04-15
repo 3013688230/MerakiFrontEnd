@@ -7,6 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppModule = void 0;
+var auth_interceptor_1 = require("./Components/auth/auth.interceptor");
+var propietarios_module_1 = require("./Modulos/propietarios/propietarios.module");
 var configuracion_service_1 = require("./Modulos/login/configuracion.service");
 var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
@@ -73,9 +75,15 @@ var AppModule = /** @class */ (function () {
                 forms_1.ReactiveFormsModule,
                 forms_1.FormsModule,
                 form_field_1.MatFormFieldModule,
+                propietarios_module_1.PropietariosModule,
                 ngx_toastr_1.ToastrModule.forRoot()
             ],
-            providers: [gestion_registro_service_1.GestionRegistroService, configuracion_service_1.ConfiguracionService],
+            providers: [gestion_registro_service_1.GestionRegistroService, configuracion_service_1.ConfiguracionService,
+                {
+                    provide: http_1.HTTP_INTERCEPTORS,
+                    useClass: auth_interceptor_1.AuthInterceptor,
+                    multi: true
+                }],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

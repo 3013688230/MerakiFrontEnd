@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServicioPropietarioService } from './Servicios/servicio-propietario.service';
 import { NgModule } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
@@ -14,7 +15,9 @@ import { CrearPropietarioComponent } from './crear-propietario/crear-propietario
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarPropietarioComponent } from './editar-propietario/editar-propietario.component';
 import { VerperfilComponent } from './verperfil/verperfil.component';
+import { AuthInterceptorService } from 'src/app/_ayudas/auth.interceptor.service';
 @NgModule({
+  // tslint:disable-next-line: max-line-length
   declarations: [ListarPropitariosComponent, DetallpropitarioComponent, PaginatePipe, CrearPropietarioComponent, EditarPropietarioComponent, VerperfilComponent],
   imports: [
     CommonModule,
@@ -32,6 +35,11 @@ import { VerperfilComponent } from './verperfil/verperfil.component';
     {
       provide: MatPaginatorIntl,
       useClass: CustomMatPaginatorIntl
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
     }
   ]
 })

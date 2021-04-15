@@ -11,6 +11,8 @@ import { UsuarioComponent } from './Modulos/login/usuario/usuario.component';
 import { RegistroUsuarioComponent } from './Modulos/login/usuario/registro-usuario/registro-usuario.component';
 import { LoginComponent } from './Modulos/login/usuario/login/login.component';
 import { HomelhComponent } from './Modulos/login/homelh/homelh.component';
+import { VerperfilComponent } from './Modulos/propietarios/verperfil/verperfil.component';
+import { PropietarioauthGuard } from './Components/auth/propietarioauth.guard';
 
 const routes: Routes = [
 
@@ -53,6 +55,11 @@ const routes: Routes = [
       {
         path: 'Editar/:variable',
         component: EditarPropietarioComponent
+      },
+      {
+        path: 'VerPerfil',
+        component: VerperfilComponent,
+        canActivate: []
       }
     ]
   }
