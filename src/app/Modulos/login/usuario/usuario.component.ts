@@ -9,8 +9,8 @@ import { UsuarioService } from '../../servicios/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  constructor(public usuarioService:UsuarioService, private toastr:ToastrService) { }
-  sw:number;
+  constructor(public usuarioService: UsuarioService, private toastr: ToastrService) { }
+  sw: number;
 
   ngOnInit(): void {
   }
