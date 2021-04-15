@@ -1,8 +1,9 @@
+import { AuthInterceptor } from './Components/auth/auth.interceptor';
 import { PropietariosModule } from './Modulos/propietarios/propietarios.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfiguracionService } from './Modulos/login/configuracion.service';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -26,7 +27,15 @@ import { Route } from '@angular/router';
 //import { LoginComponent } from './login/login.component';
 import { MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import { RegistroComponent } from './registro/registro.component';
-
+import { PerfilComponent } from './perfil/perfil.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { RegistrarPropietarioComponent } from './Modulos/login/registrar-propietario/registrar-propietario.component';
+import { GestionRegistroService } from './Modulos/login/gestion-registro.service';
+import { ToastrModule } from 'ngx-toastr';
+import { UsuarioComponent } from './Modulos/login/usuario/usuario.component';
+import { RegistroUsuarioComponent } from './Modulos/login/usuario/registro-usuario/registro-usuario.component';
+import { LoginComponent } from './Modulos/login/usuario/login/login.component';
+import { AuthInterceptorService } from './_ayudas/auth.interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +67,15 @@ import { RegistroComponent } from './registro/registro.component';
     ReactiveFormsModule,
     FormsModule,
     MatFormFieldModule,
-
+    PropietariosModule,
+    ToastrModule.forRoot()
   ],
-  providers: [GestionRegistroService, ConfiguracionService ],
+  providers: [GestionRegistroService, ConfiguracionService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

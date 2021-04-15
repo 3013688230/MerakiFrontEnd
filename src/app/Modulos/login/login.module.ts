@@ -5,13 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { RegistroUsuarioComponent } from './usuario/registro-usuario/registro-usuario.component';
-import { HomeComponent } from './home/home.component';
 import { HomelhComponent } from './homelh/homelh.component';
 
 
 
 @NgModule({
-  declarations: [RegistrarPropietarioComponent, UsuarioComponent, LoginComponent, RegistroUsuarioComponent, HomeComponent, HomelhComponent],
+  declarations: [RegistrarPropietarioComponent, UsuarioComponent, LoginComponent, RegistroUsuarioComponent, HomelhComponent],
   imports: [
     CommonModule,
     FormsModule,

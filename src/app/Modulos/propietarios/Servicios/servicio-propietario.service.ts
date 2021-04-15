@@ -76,4 +76,7 @@ export class ServicioPropietarioService {
   EditarEstado(Idrol: string, IdUsuario){
      return this.http.put(this.rootUrl + '/Propietarios/EditarEstado/' + Idrol, IdUsuario);
   }
+  obtenerPerfil(){
+    return this.http.get(this.rootUrl + '/Usuarios/Perfil/Propietario');
+   }
 }
