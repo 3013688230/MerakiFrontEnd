@@ -59,7 +59,7 @@ var routes = [
                 component: editar_propietario_component_1.EditarPropietarioComponent
             },
             {
-                path: 'VerPerfil',
+                path: 'ver',
                 component: verperfil_component_1.VerperfilComponent,
                 canActivate: []
             }

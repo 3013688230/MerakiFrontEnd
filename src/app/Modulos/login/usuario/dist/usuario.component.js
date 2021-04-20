@@ -15,28 +15,31 @@ var UsuarioComponent = /** @class */ (function () {
     }
     UsuarioComponent.prototype.ngOnInit = function () {
     };
+    // tslint:disable-next-line: typedef
     UsuarioComponent.prototype.onSubmit = function () {
         var _this = this;
         this.sw = 0;
         this.usuarioService.registrarUsuario().subscribe(function (respuesta) {
             if (respuesta.Succeeded) {
                 _this.usuarioService.formularioRegistroUsuario.reset();
-                _this.toastr.success("Usuario creado exitosamente");
+                _this.toastr.success('Usuario creado exitosamente');
                 _this.sw = 1;
             }
             else {
                 respuesta.Errors.forEach(function (element) {
                     switch (element.Code) {
                         case 'DuplicateUserName':
-                            _this.toastr.error("El nombre de usario ya existe", "Registro fallido");
+                            _this.toastr.error('El nombre de usario ya existe', 'Registro fallido');
                             _this.sw = 1;
                             break;
                         case 'DuplicateEmail':
-                            _this.toastr.error("El email ya existe", "Registro fallido");
+                            _this.toastr.error('El email ya existe', 'Registro fallido');
                             _this.sw = 1;
+                        // tslint:disable-next-line: no-switch-case-fall-through
                         default:
-                            if (_this.sw == 0)
-                                _this.toastr.error(element.Description, "Registro fallido");
+                            if (_this.sw === 0) {
+                                _this.toastr.error(element.Description, 'Registro fallido');
+                            }
                             break;
                     }
                 });

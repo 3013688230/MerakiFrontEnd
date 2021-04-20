@@ -9,21 +9,24 @@ import { UsuarioService } from '../../servicios/usuario.service';
 })
 export class HomelhComponent implements OnInit {
 
-  constructor(private router:Router, private usuarioService:UsuarioService) { }
+  constructor(private router: Router, private usuarioService: UsuarioService) { }
 
   perfilUsuario;
 
+  // tslint:disable-next-line: typedef
   cerrarSesion(){
     localStorage.removeItem('token');
     this.router.navigateByUrl('usuario/login');
   }
 
+  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.usuarioService.obtenerPerfil().subscribe(
-      res=> {
+      res => {
         this.perfilUsuario = res;
+        console.log(localStorage.getItem('Rol'));
       },
-      err=>{
+      err => {
         console.log(err);
       }
     );

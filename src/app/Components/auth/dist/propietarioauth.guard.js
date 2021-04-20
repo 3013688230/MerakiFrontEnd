@@ -9,10 +9,17 @@ exports.__esModule = true;
 exports.PropietarioauthGuard = void 0;
 var core_1 = require("@angular/core");
 var PropietarioauthGuard = /** @class */ (function () {
-    function PropietarioauthGuard() {
+    function PropietarioauthGuard(router) {
+        this.router = router;
     }
     PropietarioauthGuard.prototype.canActivate = function (next, state) {
-        return true;
+        if (localStorage.getItem('Rol') !== '2' && localStorage.getItem('token') !== null) {
+            return true;
+        }
+        else {
+            this.router.navigate(['usuario/login']);
+            return true;
+        }
     };
     PropietarioauthGuard = __decorate([
         core_1.Injectable({

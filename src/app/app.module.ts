@@ -24,7 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Route } from '@angular/router';
-//import { LoginComponent } from './login/login.component';
+// import { LoginComponent } from './login/login.component';
 import { MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import { RegistroComponent } from './registro/registro.component';
 import { PerfilComponent } from './perfil/perfil.component';
