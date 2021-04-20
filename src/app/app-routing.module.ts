@@ -16,7 +16,7 @@ import { PropietarioauthGuard } from './Components/auth/propietarioauth.guard';
 
 const routes: Routes = [
 
-  {path:'',redirectTo:'usuario/login',pathMatch:'full'},
+  {path: '', redirectTo: 'usuario/login', pathMatch: 'full'},
 
   {path: 'usuario', component: UsuarioComponent,
     children: [
@@ -25,7 +25,7 @@ const routes: Routes = [
     ]
   },
 
-  {path:'homelh', component:HomelhComponent, canActivate:[]},
+  {path:'homelh', component: HomelhComponent, canActivate: []},
 
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },

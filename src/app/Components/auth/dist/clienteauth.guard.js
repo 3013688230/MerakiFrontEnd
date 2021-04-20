@@ -6,14 +6,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AuthGuard = void 0;
+exports.ClienteauthGuard = void 0;
 var core_1 = require("@angular/core");
-var AuthGuard = /** @class */ (function () {
-    function AuthGuard(router) {
+var ClienteauthGuard = /** @class */ (function () {
+    function ClienteauthGuard(router) {
         this.router = router;
     }
-    AuthGuard.prototype.canActivate = function (next, state) {
-        if (localStorage.getItem('Rol') !== '1' && localStorage.getItem('token') !== null) {
+    ClienteauthGuard.prototype.canActivate = function (next, state) {
+        if (localStorage.getItem('Rol') !== '3' && localStorage.getItem('token') !== null) {
             return true;
         }
         else {
@@ -21,11 +21,11 @@ var AuthGuard = /** @class */ (function () {
             return true;
         }
     };
-    AuthGuard = __decorate([
+    ClienteauthGuard = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], AuthGuard);
-    return AuthGuard;
+    ], ClienteauthGuard);
+    return ClienteauthGuard;
 }());
-exports.AuthGuard = AuthGuard;
+exports.ClienteauthGuard = ClienteauthGuard;

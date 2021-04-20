@@ -29,7 +29,7 @@ var card_1 = require("@angular/material/card");
 var menu_1 = require("@angular/material/menu");
 var input_1 = require("@angular/material/input");
 var forms_1 = require("@angular/forms");
-//import { LoginComponent } from './login/login.component';
+// import { LoginComponent } from './login/login.component';
 var form_field_1 = require("@angular/material/form-field");
 var registro_component_1 = require("./registro/registro.component");
 var perfil_component_1 = require("./perfil/perfil.component");

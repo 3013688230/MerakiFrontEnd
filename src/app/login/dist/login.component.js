@@ -4,7 +4,6 @@
 // import { map } from 'rxjs/internal/operators/map';
 // import { AuthService } from '../_services/auth.service';
 // import { TokenStorageService } from '../_services/token-storage.service';
-
 // @Component({
 //   selector: 'app-login',
 //   templateUrl: './login.component.html',
@@ -19,8 +18,6 @@
 //   isLoginFailed = false;
 //   errorMessage = '';
 //   roles: string[] = [];
-
-
 //   hide: boolean = false;
 //   constructor(
 //     private authService: AuthService,
@@ -28,22 +25,18 @@
 //     private router: Router,
 //     private fb: FormBuilder
 //   ) { }
-
 //   ngOnInit(): void {
 //     if (this.tokenStorage.getToken()) {
 //       this.isLoggedIn = true;
 //       this.roles = this.tokenStorage.getUser().roles;
 //     }
 //   }
-
 //   onSubmit(): void {
 //     const { username, password } = this.form;
-
 //     this.authService.login(username, password).subscribe(
 //       data => {
 //         this.tokenStorage.guardarToken(data.accessToken);
 //         this.tokenStorage.guardarUser(data);
-
 //         this.isLoginFailed = false;
 //         this.isLoggedIn = true;
 //         this.roles = this.tokenStorage.getUser().roles;
@@ -55,20 +48,15 @@
 //       }
 //     );
 //   }
-
-
 //   cargarPagina(): void {
 //     window.location.reload();
 //   }
-
-
 //   loginForm : FormGroup = this.fb.group(
 //     {
 //       email: ['', [Validators.required, Validators.email]],
 //       password: ['', [Validators.required, Validators.nullValidator, Validators.minLength(8)]]
 //     }
 //   );
-
 //   onLogin() {
 //     if (!this.loginForm.valid) {
 //       return;
